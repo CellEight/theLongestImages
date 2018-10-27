@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import numpy as np
+import sys
 
 def getBytesFromFile(filename):
     return open(filename, "rb").read()
@@ -18,7 +19,7 @@ def fileToLongestImage(filename):
     for i in range(len(file)):
             Longestimage.append(byteToRow(file[i]))
     return Longestimage
-filename = "./main.py"
 
-image = fileToLongestImage(filename)
+
+image = fileToLongestImage(str(sys.argv[1]))
 plt.imsave('LongestImage.png', np.array(image), cmap=cm.gray)
